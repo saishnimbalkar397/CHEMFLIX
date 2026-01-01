@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemflix - Join the Chemistry Learning Platform</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="app.js" as="script">
+    
+    <!-- DNS prefetch for Firebase -->
+    <link rel="dns-prefetch" href="//www.gstatic.com">
+    <link rel="dns-prefetch" href="//firebaseapp.com">
+    
+    <!-- Critical CSS inline for faster rendering -->
+    <style>
+        /* Critical above-the-fold styles */
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .navbar { background: #1a1a2e; color: white; padding: 1rem 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .logo { margin: 0; font-size: 1.5rem; font-weight: bold; }
+        .auth-container { min-height: 100vh; padding-top: 80px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .loading-spinner { display: none; }
+    </style>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme-fix.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/chemfli-logo.png" alt="ChemFlix" class="logo-img" onerror="this.src='assets/chemflix-logo.jpg'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='block';};">
+                <span class="logo-text" style="display: none;">ChemFlix</span>
+            </div>
+            <div class="nav-right">
+                <button class="mode-toggle" id="modeToggle">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-wrapper">
+            <div class="auth-left">
+                <div class="auth-hero">
+                    <h1 class="auth-title">Master Engineering Chemistry</h1>
+                    <p class="auth-subtitle">Join thousands of students learning chemistry with our comprehensive platform designed specifically for engineering students.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">📚</div>
+                            <div class="feature-text">
+                                <h4>Complete Syllabus Coverage</h4>
+                                <p>All 4 units aligned with PCCOE curriculum</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🎯</div>
+                            <div class="feature-text">
+                                <h4>Exam-Focused Content</h4>
+                                <p>Internal and summative assessment preparation</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
+                            <div class="feature-text">
+                                <h4>Interactive Learning</h4>
+                                <p>Engaging content with practical examples</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="auth-right">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2 id="authTitle">Create Your Account</h2>
+                        <p id="authSubtitle">Start your chemistry learning journey today</p>
+                    </div>
+
+                    <div id="messageContainer" class="message-container"></div>
+
+                    <form id="authForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Create a password" minlength="6" required>
+                            <div class="helper-text" id="passwordHelper">At least 6 characters</div>
+                        </div>
+
+                        <div class="form-group" id="nameGroup">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="Enter your full name" required>
+                        </div>
+
+                        <button type="submit" class="auth-btn" id="authBtn">
+                            <span id="btnText">Create Account</span>
+                            <div class="loading-spinner" id="loadingSpinner"></div>
+                        </button>
+                    </form>
+
+                    <div class="auth-toggle">
+                        <p id="toggleText">Already have an account?</p>
+                        <button type="button" id="toggleMode" class="toggle-link">Sign in here</button>
+                    </div>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <div class="social-auth">
+                        <p class="social-text">Join the PCCOE Chemistry Community</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Welcome to Chemflix! 🎉</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage">Your account has been created successfully!</p>
+                <div class="modal-actions">
+                    <button class="btn-primary" id="continueBtn">Continue to Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Simple Theme Manager -->
+    <script src="simple-theme.js"></script>
+    
+    <script>
+        // Optimized Firebase initialization - wait for scripts to load
+        window.addEventListener('load', function() {
+            // Check if Firebase is loaded
+            if (typeof firebase !== 'undefined') {
+                initializeFirebase();
+            } else {
+                // Fallback: wait a bit more for Firebase to load
+                setTimeout(initializeFirebase, 500);
+            }
+        });
+
+        function initializeFirebase() {
+            try {
+                // Your Firebase configuration
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAbDv3pxAcvVIQfEkS-uuPgU_bzR_J5r0U",
+                    authDomain: "chemflix-da008.firebaseapp.com",
+                    projectId: "chemflix-da008",
+                    storageBucket: "chemflix-da008.firebasestorage.app",
+                    messagingSenderId: "666681098738",
+                    appId: "1:666681098738:web:db0cc79d3e357cbb752b6b",
+                    measurementId: "G-Y3DP2NX6JT"
+                };
+
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+                
+                // Get Firebase services
+                window.firebaseAuth = firebase.auth();
+                window.firebaseDb = firebase.firestore();
+                
+                console.log('Firebase initialized successfully');
+                
+                // Initialize app after Firebase is ready
+                if (window.initializeApp) {
+                    window.initializeApp();
+                }
+            } catch (error) {
+                console.error('Firebase initialization error:', error);
+            }
+        }
+    </script>
+    <script defer src="app.js"></script>
+</body>
+</html>

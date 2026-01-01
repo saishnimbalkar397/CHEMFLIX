@@ -1,0 +1,227 @@
+/* THEME FIX - Professional and Selective */
+
+/* Light Mode Styles */
+body.light-mode {
+    background-color: #FFFFFF !important;
+    color: #1A1A1A !important;
+}
+
+body.light-mode .navbar {
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid #E5E5E5 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-mode .logo {
+    color: #1A1A1A !important;
+}
+
+body.light-mode .auth-container {
+    background-color: #F8F9FA !important;
+}
+
+body.light-mode .auth-card {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E5E5E5 !important;
+    color: #1A1A1A !important;
+}
+
+body.light-mode .auth-header h2 {
+    color: #1A1A1A !important;
+}
+
+body.light-mode .auth-header p {
+    color: #6B7280 !important;
+}
+
+body.light-mode .feature-item {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E5E5E5 !important;
+}
+
+body.light-mode .feature-text h4 {
+    color: #1A1A1A !important;
+}
+
+body.light-mode .feature-text p {
+    color: #6B7280 !important;
+}
+
+body.light-mode .auth-hero h1 {
+    color: #1A1A1A !important;
+}
+
+body.light-mode .auth-hero p {
+    color: #6B7280 !important;
+}
+
+body.light-mode .form-group label {
+    color: #1A1A1A !important;
+}
+
+body.light-mode .form-group input {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E5E5E5 !important;
+    color: #1A1A1A !important;
+}
+
+body.light-mode .form-group input::placeholder {
+    color: #9CA3AF !important;
+}
+
+body.light-mode .helper-text {
+    color: #6B7280 !important;
+}
+
+body.light-mode .mode-toggle {
+    background-color: #F5F5F5 !important;
+    border: 1px solid #E5E5E5 !important;
+    color: #1A1A1A !important;
+}
+
+body.light-mode .auth-btn {
+    background-color: #6366F1 !important;
+    color: #FFFFFF !important;
+}
+
+body.light-mode .auth-toggle p {
+    color: #6B7280 !important;
+}
+
+body.light-mode .toggle-link {
+    color: #6366F1 !important;
+}
+
+body.light-mode .divider span {
+    background-color: #FFFFFF !important;
+    color: #6B7280 !important;
+}
+
+body.light-mode .social-text {
+    color: #6B7280 !important;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #0F0F0F !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .navbar {
+    background-color: #1A1A1A !important;
+    border-bottom: 1px solid #2A2A2A !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .logo {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .auth-container {
+    background-color: #0F0F0F !important;
+}
+
+body.dark-mode .auth-card {
+    background-color: #1A1A1A !important;
+    border: 1px solid #2A2A2A !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .auth-header h2 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .auth-header p {
+    color: #B0B0B0 !important;
+}
+
+body.dark-mode .feature-item {
+    background-color: #1A1A1A !important;
+    border: 1px solid #2A2A2A !important;
+}
+
+body.dark-mode .feature-text h4 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .feature-text p {
+    color: #B0B0B0 !important;
+}
+
+body.dark-mode .auth-hero h1 {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .auth-hero p {
+    color: #B0B0B0 !important;
+}
+
+body.dark-mode .form-group label {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .form-group input {
+    background-color: #2A2A2A !important;
+    border: 1px solid #3A3A3A !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .form-group input::placeholder {
+    color: #808080 !important;
+}
+
+body.dark-mode .helper-text {
+    color: #B0B0B0 !important;
+}
+
+body.dark-mode .mode-toggle {
+    background-color: #2A2A2A !important;
+    border: 1px solid #3A3A3A !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .auth-btn {
+    background-color: #6366F1 !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .auth-toggle p {
+    color: #B0B0B0 !important;
+}
+
+body.dark-mode .toggle-link {
+    color: #6366F1 !important;
+}
+
+body.dark-mode .divider span {
+    background-color: #1A1A1A !important;
+    color: #B0B0B0 !important;
+}
+
+body.dark-mode .social-text {
+    color: #B0B0B0 !important;
+}
+/* Header logo styles for unit pages */
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo .logo-img {
+    height: 35px;
+    width: 70px;
+    max-width: 150px;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Light mode header logo */
+body.light-mode .header-logo .logo-img {
+    filter: brightness(0.2);
+}
+
+/* Dark mode header logo */
+body.dark-mode .header-logo .logo-img {
+    filter: brightness(1);
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="chemflix quiz unit4.css">
+      <link rel="stylesheet" href="../theme-fix.css">
+    <title>Quiz</title>
+
+</head>
+<body>
+       <div class="mode-toggle-container">
+        <button class="mode-toggle" id="modeToggle">☀️</button>
+    </div>
+
+    <div class="quiz-container">
+        <h1>Test Yourself</h1>
+        
+        <div class="setup" id="setup">
+            <h2>How many questions would you like to attempt?</h2>
+            <label for="num-questions">Number of Questions (1-20):</label>
+            <input type="number" id="num-questions" min="1" max="20" value="5">
+            <div class="error" id="error"></div>
+            <br>
+            <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+        </div>
+        
+        <div id="quiz" style="display: none;">
+            <div class="progress" id="progress"></div>
+            <div class="question" id="question-container">
+                <h2 id="question"></h2>
+                <div class="options" id="options"></div>
+                <div class="feedback" id="feedback"></div>
+                <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next Question</button>
+            </div>
+        </div>
+        
+        <div class="result" id="result" style="display: none;">
+            <h2>Quiz Complete!</h2>
+            <div id="final-score"></div>
+            <button class="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAbDv3pxAcvVIQfEkS-uuPgU_bzR_J5r0U",
+            authDomain: "chemflix-da008.firebaseapp.com",
+            projectId: "chemflix-da008",
+            storageBucket: "chemflix-da008.firebasestorage.app",
+            messagingSenderId: "666681098738",
+            appId: "1:666681098738:web:db0cc79d3e357cbb752b6b"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        window.firebaseAuth = firebase.auth();
+        window.firebaseDb = firebase.firestore();
+    </script>
+    
+    <!-- Universal Theme Manager -->
+    <script src="theme-manager.js"></script>
+    
+    <!-- Simple Theme Manager -->
+    <script src="../simple-theme.js"></script>
+    
+ <script src="chemflix quiz.js"></script>

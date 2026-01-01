@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemflix</title>
+     <link rel="stylesheet" href="chemflix homepage.css">
+     <link rel="stylesheet" href="../theme-fix.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.reload()">
+                <img src="../assets/chemfli-logo.png" alt="ChemFlix" class="logo-img" onerror="this.src='../assets/chemflix-logo.jpg'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='block';};">
+                <span class="logo-text" style="display: none;">ChemFlix</span>
+            </div>
+             <div class="nav-links">
+      <a  class="nav-link">About</a>
+      <a  class="nav-link">Feedback</a>
+      <a  class="nav-link">Contact us</a>
+      <a  class="nav-link">Our Team</a>    
+            </div>
+            <div class="nav-right">
+                <button class="mode-toggle" id="modeToggle">🌙</button>
+                <div class="user-avatar" id="userAvatar">U</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+          <section id="roadmap">
+
+
+    <h1>Explore By Units</h1></section>
+    <p>Master Engineering Chemistry concepts aligned with the Engineering Chemistry Syllabus — explained clearly, step by step.</p>
+    </div>
+
+    <div class="container">
+        <h3 class="section-title">Your Units</h3>
+        <div class="units-grid">
+            <div class="unit-card" onclick="window.location.href='chemflix unit1.html'">
+                <div class="unit-number">Unit 01</div>
+                <div class="unit-title">Water Technology</div>
+                <div class="unit-description">Hardness of Water,Types,Chemical Analysis of water using EDTA method,Alkalinity,Water Softening Techniques, DO,BOD,COD.Introduction to Green Chemistry.</div>
+            </div>
+            
+            <div class="unit-card" onclick="window.location.href='chemflix unit2.html'">
+                <div class="unit-number">Unit 02</div>
+                <div class="unit-title">Fuel And Combustion</div>
+                <div class="unit-description">Fuels,GCV,NCV,Bomb/Boy's Calorimeter,Combustion</div>
+            </div>
+            
+            <div class="unit-card" onclick="window.location.href='chemflix unit3.html'">
+                <div class="unit-number">Unit 03</div>
+                <div class="unit-title">Corrosion And Corrosion Control</div>
+                <div class="unit-description">Types of Corrosion,Galvanic Series,Factors affecting Corrosion,Methods of Preventing Corrosion and applying mettalic coatings</div>
+            </div>
+            
+            <div class="unit-card" onclick="window.location.href='chemflix unit4.html'">
+                <div class="unit-number">Unit 04</div>
+                <div class="unit-title">Chemistry Of Polymers And Novel Carbon Compounds</div>
+                <div class="unit-description">Polymers,Classification,Properties of Polymers.Polymerisation And Its Types.Advanced Polymeric Materials.Nanomaterials,Quantum Dots.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="internal">
+        <h2 id="internal-assessment"></h2>
+         <!--<h2 class="section-title">Internal Assessment</h2>
+         <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+Where can I get some?
+There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+
+5
+	paragraphs
+	words
+	bytes
+	lists
+	Start with 'Lorem
+ipsum dolor sit amet...'
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+Where can I get some?
+There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+
+5
+	paragraphs
+	words
+	bytes
+	lists
+	Start with 'Lorem
+ipsum dolor sit amet...'
+</p>
+    </div>
+
+   
+ <div class="external">
+        <h2 id="summative-assessment"></h2>
+         <h2 class="section-title">Summative Assessment</h2>
+         <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+Where can I get some?
+There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+
+5
+	paragraphs
+	words
+	bytes
+	lists
+	Start with 'Lorem
+ipsum dolor sit amet...'
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+Where can I get some?
+There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+
+5
+	paragraphs
+	words
+	bytes
+	lists
+	Start with 'Lorem
+ipsum dolor sit amet...'
+</p>
+    </div>
+<!--<section id="exam-pattern">
+  <h2>Exam Pattern</h2>
+</section>
+
+<section id="internal-assessment">
+  <h2>Internal Assessment</h2>
+</section>
+
+<section id="important-topics">
+  <h2>Important Topics</h2>
+</section>-->
+
+
+
+
+    <script src="https://unpkg.com/lenis@1.3.16/dist/lenis.min.js"></script>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+   <!-- <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAbDv3pxAcvVIQfEkS-uuPgU_bzR_J5r0U",
+            authDomain: "chemflix-da008.firebaseapp.com",
+            projectId: "chemflix-da008",
+            storageBucket: "chemflix-da008.firebasestorage.app",
+            messagingSenderId: "666681098738",
+            appId: "1:666681098738:web:db0cc79d3e357cbb752b6b",
+            measurementId: "G-Y3DP2NX6JT"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        window.firebaseAuth = firebase.auth();
+        window.firebaseDb = firebase.firestore();
+    </script>-->
+    
+    <!-- Universal Theme Manager -->
+    <script src="theme-manager.js"></script>
+    
+    <!-- Simple Theme Manager -->
+    <script src="../simple-theme.js"></script>
+    
+    <!-- Inline avatar update script -->
+    <script>
+        console.log('Inline script running...');
+        
+        function updateAvatar() {
+            console.log('updateAvatar called');
+            const userAvatar = document.getElementById('userAvatar');
+            const storedUser = localStorage.getItem('chemflix_user');
+            
+            console.log('Avatar element:', userAvatar);
+            console.log('Stored user:', storedUser);
+            
+            if (userAvatar && storedUser) {
+                try {
+                    const userData = JSON.parse(storedUser);
+                    console.log('User data:', userData);
+                    
+                    if (userData.displayName) {
+                        const initial = userData.displayName.charAt(0).toUpperCase();
+                        console.log('Setting avatar to:', initial);
+                        
+                        // Force update with styling
+                        userAvatar.textContent = initial;
+                        userAvatar.innerHTML = initial; // Try both textContent and innerHTML
+                        userAvatar.style.color = 'white'; // Ensure it's visible
+                        userAvatar.style.fontSize = '16px'; // Ensure it's visible
+                        userAvatar.style.fontWeight = '600'; // Ensure it's visible
+                        
+                        console.log('Avatar set successfully');
+                        console.log('Avatar textContent now:', userAvatar.textContent);
+                        console.log('Avatar innerHTML now:', userAvatar.innerHTML);
+                        
+                        // Also try to force a repaint
+                        userAvatar.style.display = 'none';
+                        userAvatar.offsetHeight; // Trigger reflow
+                        userAvatar.style.display = 'flex';
+                        
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            }
+        }
+        
+        // Try immediately
+        updateAvatar();
+        
+        // Try when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', updateAvatar);
+        } else {
+            updateAvatar();
+        }
+        
+        // Try when window loads
+        window.addEventListener('load', updateAvatar);
+        
+        // Try with delays
+        setTimeout(updateAvatar, 100);
+        setTimeout(updateAvatar, 500);
+        setTimeout(updateAvatar, 1000);
+    </script>
+    
+    <script src="chemflix homepage.js"></script>
+</body>
+</html>
+
