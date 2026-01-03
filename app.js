@@ -2,7 +2,7 @@
 let isLoginMode = false;
 let isLoading = false;
 
-// DOM elements - Safe initialization
+
 let elements = {};
 
 function initializeElements() {
@@ -794,4 +794,5 @@ if (document.readyState === 'loading') {
     } else {
         window.initializeApp = initializeApp;
     }
+
 }
