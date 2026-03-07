@@ -47,10 +47,10 @@ A comprehensive chemistry learning platform designed specifically for engineerin
 
 ## 📚 Course Content
 
-### Unit 1: [Chemistry Fundamentals]
-### Unit 2: [Organic Chemistry]
-### Unit 3: [Physical Chemistry]
-### Unit 4: [Analytical Chemistry]
+### Unit 1: Water Technology
+### Unit 2: Fuel And Combustion
+### Unit 3: Corrosion and Corrosion Science
+### Unit 4: Chemistry Of Polymers And Novel Carbon Compounds
 
 ## 🔧 Installation & Setup
 
@@ -130,15 +130,13 @@ ChemFlix supports both dark and light themes:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+Saish Nimbalkar
+- GitHub: [@saishnimbalkar397](https://github.com/saishnimbalkar397)
+- Email:saishnim03@gmail.com
 
 ## 🙏 Acknowledgments
 
@@ -146,13 +144,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Firebase for backend services
 - All contributors and testers
 
-## 📞 Support
 
-If you have any questions or need help, please:
-1. Check the [Issues](https://github.com/yourusername/chemflix/issues) page
-2. Create a new issue if your problem isn't already listed
-3. Contact the maintainer
 
----
 
 **Made with ❤️ for chemistry students**
