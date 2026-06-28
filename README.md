@@ -145,4 +145,4 @@ Saish Nimbalkar
 
 
 
-**Made with ❤️ for chemistry students**
+
