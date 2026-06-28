@@ -17,11 +17,9 @@ A comprehensive chemistry learning platform designed specifically for engineerin
 - PCCOE students preparing for internal and summative assessments
 - Anyone interested in learning chemistry concepts
 
-## 🚀 Live Demo
 
-[Add your deployed URL here]
 
-## 📱 Screenshots
+
 
 ### Registration Page
 - Clean, professional registration/login interface
