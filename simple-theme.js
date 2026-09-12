@@ -1,5 +1,5 @@
 // Simple Theme Manager - Production Ready
-let currentTheme = localStorage.getItem('chemflix_theme') || 'dark';
+let currentTheme = localStorage.getItem('chemflix_theme') || 'light';
 
 function applyTheme(theme) {
     const body = document.body;

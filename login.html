@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemFlix - Sign In</title>
+    <meta name="description" content="Sign in to your ChemFlix account and continue mastering engineering chemistry.">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme-fix.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span style="color: #10B981;">&#9679;</span>
+                <span class="logo-text">
+                    <span style="color: inherit;">CHEM</span><span style="color: #10B981;">FLIX</span>
+                </span>
+            </div>
+            <div class="nav-right">
+                <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark/light mode">&#127769;</button>
+                <div class="user-avatar" id="userAvatar" aria-hidden="true">S</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth layout -->
+    <div class="auth-container">
+        <div class="auth-wrapper">
+
+            <!-- Left panel -->
+            <div class="auth-left">
+                <div class="auth-hero">
+                    <h1 class="auth-title">Welcome Back</h1>
+                    <p class="auth-subtitle">Sign in to continue your chemistry learning journey</p>
+                </div>
+            </div>
+
+            <!-- Right panel -->
+            <div class="auth-right">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2 id="authTitle">Sign In</h2>
+                        <p id="authSubtitle">Enter your credentials to continue</p>
+                    </div>
+
+                    <div id="messageContainer" class="message-container" role="alert" aria-live="polite"></div>
+
+                    <form id="authForm" class="auth-form" novalidate>
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">EMAIL ADDRESS</label>
+                            <input type="email" id="email" name="email"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                aria-describedby="emailHelper"
+                                required>
+                            <div class="helper-text" id="emailHelper"></div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="password">PASSWORD</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="password" name="password"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
+                                    aria-describedby="passwordHelper"
+                                    required>
+                                <button type="button" class="password-toggle" id="passwordToggle"
+                                    aria-label="Toggle password visibility">&#128065;&#65039;</button>
+                            </div>
+                            <div class="helper-text" id="passwordHelper">Enter your password</div>
+                        </div>
+
+                        <!-- Hidden: name group (not used in login mode) -->
+                        <div class="form-group hidden" id="nameGroup">
+                            <label for="fullName">FULL NAME</label>
+                            <input type="text" id="fullName" name="fullName"
+                                placeholder="Enter your full name"
+                                autocomplete="name">
+                            <div class="helper-text" id="nameHelper"></div>
+                        </div>
+
+                        <button type="submit" class="auth-btn" id="authBtn">
+                            <span id="btnText">Sign In &#8594;</span>
+                            <div class="loading-spinner" id="loadingSpinner" aria-hidden="true"></div>
+                        </button>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p id="toggleText">
+                            Don't have an account?
+                            <a href="chemflix-registration.html" class="toggle-link">Create account</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success / Verification Modal -->
+    <div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+                <div class="modal-actions">
+                    <button class="btn-primary" id="continueBtn">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase compat SDKs -->
+    <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <!-- Theme -->
+    <script src="simple-theme.js"></script>
+
+    <!-- App modules (order matters) -->
+    <script src="js/ui-utils.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/auth.js"></script>
+
+    <!-- Set page mode before main.js loads -->
+    <script>window.PAGE_MODE = "login";</script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

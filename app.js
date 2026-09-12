@@ -2,6 +2,11 @@
 let isLoginMode = false;
 let isLoading = false;
 
+// ------------------------------------------------------------
+// Utility integration (ui-utils) for toasts and helpers
+// ------------------------------------------------------------
+// ui-utils will expose a global `window.uiUtils` object with helper methods.
+// We'll use `uiUtils.showToast(message, type)` for non‑modal user feedback.
 
 let elements = {};
 
@@ -27,6 +32,57 @@ function initializeElements() {
         messageContainer: document.getElementById('messageContainer')
     };
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const passwordToggle = document.getElementById('passwordToggle');
+    const passwordInput = document.getElementById('password');
+
+    if (passwordToggle && passwordInput) {
+        passwordToggle.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            passwordToggle.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+    }
+
+    // Add a simple password entry modal for verification status checks.
+    // This replaces the `prompt` usage with a modal UI.
+    if (!document.getElementById('verificationPasswordModal')) {
+        const modalHtml = `
+        <div id="verificationPasswordModal" class="modal" role="dialog" aria-modal="true" style="display:none;">
+            <div class="modal-content">
+                <div class="modal-header"><h3>Enter Password</h3></div>
+                <div class="modal-body">
+                    <input type="password" id="verificationPasswordInput" placeholder="Password" class="input-field" />
+                </div>
+                <div class="modal-actions">
+                    <button id="verificationPasswordConfirm" class="btn-primary">Confirm</button>
+                    <button id="verificationPasswordCancel" class="btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>`;
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+        const confirmBtn = document.getElementById('verificationPasswordConfirm');
+        const cancelBtn = document.getElementById('verificationPasswordCancel');
+        const modal = document.getElementById('verificationPasswordModal');
+        const input = document.getElementById('verificationPasswordInput');
+        confirmBtn.addEventListener('click', () => {
+            const pwd = input.value.trim();
+            modal.style.display = 'none';
+            if (window._verificationPasswordCallback) {
+                window._verificationPasswordCallback(pwd);
+                window._verificationPasswordCallback = null;
+            }
+        });
+        cancelBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            if (window._verificationPasswordCallback) {
+                window._verificationPasswordCallback(null);
+                window._verificationPasswordCallback = null;
+            }
+        });
+    }
+});
 
 // Optimized form validation with debouncing
 const debounce = (func, wait) => {
@@ -87,6 +143,12 @@ function clearFieldError(field) {
 }
 
 function showMessage(message, type = 'error') {
+    // Prefer toast notifications for transient messages.
+    if (window.uiUtils && typeof window.uiUtils.showToast === 'function') {
+        window.uiUtils.showToast(message, type);
+        return;
+    }
+    // Fallback: use existing message container if toast utility not available.
     if (!elements.messageContainer) {
         console.error('Message container not found');
         alert(message); // Fallback to alert
@@ -223,8 +285,21 @@ async function checkVerificationStatus(email) {
         
         const auth = window.firebaseAuth;
         
-        // Get password to check status
-        const password = prompt('Please enter your password to check verification status:');
+        // Show custom modal for password entry instead of `prompt`.
+        const password = await new Promise((resolve) => {
+            // Expose a temporary callback that the modal will invoke.
+            window._verificationPasswordCallback = resolve;
+            const modal = document.getElementById('verificationPasswordModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                const input = document.getElementById('verificationPasswordInput');
+                if (input) input.value = '';
+                input.focus();
+            } else {
+                // Fallback to prompt if modal is unavailable.
+                resolve(prompt('Please enter your password to check verification status:'));
+            }
+        });
         if (!password) {
             showMessage('Password required to check verification status.', 'error');
             return;
@@ -253,12 +328,12 @@ async function checkVerificationStatus(email) {
             
             elements.continueBtn.textContent = 'Continue to ChemFlix';
             elements.continueBtn.onclick = () => {
-                window.location.href = 'Hompage/chemflix homepage.html';
+                window.location.href = 'landing.html';
             };
             
             // Auto-redirect after 3 seconds
             setTimeout(() => {
-                window.location.href = 'Hompage/chemflix homepage.html';
+                window.location.href = 'landing.html';
             }, 3000);
             
         } else {
@@ -316,7 +391,7 @@ async function resendVerificationEmail(email) {
             console.log('Email already verified');
             showMessage('Your email is already verified! You can now access ChemFlix.', 'success');
             setTimeout(() => {
-                window.location.href = 'Hompage/chemflix homepage.html';
+                window.location.href = 'landing.html';
             }, 2000);
             return;
         }
@@ -346,7 +421,7 @@ async function resendVerificationEmail(email) {
             // Reset the continue button
             elements.continueBtn.textContent = 'Continue to ChemFlix';
             elements.continueBtn.onclick = () => {
-                window.location.href = 'Hompage/chemflix homepage.html';
+                window.location.href = 'landing.html';
             };
         };
         
@@ -631,7 +706,7 @@ function redirectToHomepage() {
             localStorage.setItem('chemflix_user', JSON.stringify(userData));
             
             // Redirect to homepage
-            window.location.href = 'Hompage/chemflix homepage.html';
+            window.location.href = 'landing.html';
         }).catch((error) => {
             console.error('Error refreshing user:', error);
             // Fallback: store what we have
@@ -641,11 +716,11 @@ function redirectToHomepage() {
                 displayName: user.displayName,
                 emailVerified: user.emailVerified
             }));
-            window.location.href = 'Hompage/chemflix homepage.html';
+            window.location.href = 'landing.html';
         });
     } else {
         console.error('No current user found');
-        window.location.href = 'Hompage/chemflix homepage.html';
+        window.location.href = 'landing.html';
     }
 }
 

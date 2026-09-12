@@ -453,7 +453,7 @@ function startQuiz() {
     let error = document.getElementById("error");
 
     if (num < 1 || num > 10) {
-        error.textContent = "Enter a number between 1 and 10";
+        error.textContent = "Enter a number between 1 and 20";
         return;
     }
 
